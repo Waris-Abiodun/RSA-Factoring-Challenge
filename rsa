@@ -42,7 +42,31 @@ int main(int argc, char **argv)
  */
 void factorize(char *buf)
 {
-	long int num = atol(buf);
-
-	printf("%ld", num);
+	long long num = atoll(buf);
+	long long x = 612852475143;
+	long long n = 2;
+	long long check = num / 2;
+	long long prime;
+	
+	if ((num % n) == 0)
+	{
+		printf("%lld=%lld*%lld\n", num, check, n);
+	}
+	else
+	{
+		for(n = 3; n < check; n = n + 2)
+		{
+			if ((num %  n) == 0)
+			{
+				check = num / n;
+				if ((num % n) == 0)
+				{
+					printf("%lld=%lld*%lld\n", num, check, n);
+					break;
+				}
+			}
+			check = num / n;
+		}
+		
+	}
 }
